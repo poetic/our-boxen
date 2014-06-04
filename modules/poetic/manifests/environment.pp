@@ -213,4 +213,9 @@ class poetic::environment {
   package { reattach-to-user-namespace:
     ensure => present
   }
+
+  package { autojump:
+    ensure   => present
+  }
+
 }
