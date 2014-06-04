@@ -1,0 +1,80 @@
+#!/usr/bin/ruby
+# Run Boxen.
+
+require "pathname"
+
+if ENV["USER"] == "root"
+  abort "Run this as a normal user, I'll sudo if I need to."
+end
+
+# Make sure only one boxen process runs at a time.
+
+myself = File.new __FILE__
+
+unless myself.flock File::LOCK_EX | File::LOCK_NB
+  abort "You're already running a boxen process! Know a patience."
+end
+
+# Yeah yeah, I like to be explicit.
+
+at_exit { myself.flock File::LOCK_UN }
+
+# Put us where we belong, in the root dir of our boxen repo.
+
+Dir.chdir Pathname.new(__FILE__).realpath + "../.."
+
+# Auto-update code. This is done as early as possible so that changes
+# to boxen support code or dependencies can be grabbed.
+NO_PULL_ARGS = %w[--no-pull -h -? --help] + [/-service/]
+unless ENV["BOXEN_NO_PULL"] ||
+  ARGV.any? { |arg|  NO_PULL_ARGS.any? { |no|  arg.match(no) } }
+  quietly = "> /dev/null 2>&1"
+
+  if system("which git > /dev/null") && File.directory?(".git") \
+    && system("git fetch -q origin")
+
+    clean  = `git status --porcelain`.empty?
+    current_branch = `git symbolic-ref HEAD`.chomp
+    master = current_branch == "refs/heads/master"
+
+    upstream_changes = `git rev-list --count master..origin/master`.chomp != '0'
+    fast_forwardable = `git rev-list --count origin/master..master`.chomp == '0'
+
+    if current_branch.empty?
+      ref = `git log -1 --pretty=format:%h`
+      warn "Boxen not currently on any branch (ref: #{ref}), won't auto-update!"
+    elsif !master
+      local_branch =  current_branch.split('/')[2..-1].join('/')
+      warn "Boxen on a non-master branch '#{local_branch}', won't auto-update!"
+    elsif !fast_forwardable
+      warn "Boxen's master branch is out of sync, won't auto-update!"
+    elsif !clean
+      warn "Boxen has a dirty tree, won't auto-update!"
+    elsif !upstream_changes
+      warn "Boxen is up-to-date."
+    end
+
+    if clean && master && fast_forwardable && upstream_changes
+      reset   = "(git reset --hard origin/master #{quietly})"
+      reclean = "(git clean -qdf)"
+
+      unless system "#{reset} && #{reclean}"
+        warn "Auto-update of Boxen FAILED, continuing."
+      end
+    end
+  end
+end
+
+# Make sure our local dependencies are up to date.
+
+strap = %w(script/bootstrap --deployment --local --without development:test --no-cache)
+abort "Can't bootstrap, dependencies are outdated." unless system *strap
+
+# Set up our local configuration, deps, and load path.
+
+load "config/basic.rb"
+require "boxen/cli"
+
+# Okay, let's run this thing.
+
+exit Boxen::CLI.run ARGV

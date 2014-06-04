@@ -1,0 +1,34 @@
+// Settings in here override those in "Default/Preferences.sublime-settings", and
+// are overridden in turn by file type specific settings.
+{
+  "auto_indent": true,
+  "bold_folder_labels": true,
+  "caret_style": "phase",
+  "color_scheme": "Packages/Color Scheme - Default/Cobalt.tmTheme",
+  "detect_indentation": true,
+  "ensure_newline_at_eof_on_save": true,
+  "fade_fold_buttons": false,
+  "font_face": "Monaco",
+  "font_size": 13.0,
+  "gutter": true,
+  "highlight_line": true,
+  "highlight_modified_tabs": true,
+  "ignored_packages":
+  [
+    "Vintage"
+  ],
+  "line_padding_bottom": 1,
+  "line_padding_top": 1,
+  "rulers":
+  [
+    80
+  ],
+  "scroll_past_end": true,
+  "tab_size": 2,
+  "theme": "Soda Dark.sublime-theme",
+  "translate_tabs_to_spaces": true,
+  "trim_trailing_white_space_on_save": true,
+  "use_tab_stops": true,
+  "hot_exit": false,
+  "remember_open_files": false
+}
