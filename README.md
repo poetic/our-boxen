@@ -1,3 +1,9 @@
+## Trouble with ruby after this commit?
+
+`rbenv global system`
+`mv /opt/boxen/rbenv/versions /opt/boxen/rbenv/versions.bak`
+`boxen`
+
 # Simple Install
 1. Turn on Full Disk Encryption
 2. Install Xcode

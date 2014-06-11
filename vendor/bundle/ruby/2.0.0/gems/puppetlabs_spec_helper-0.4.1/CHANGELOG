@@ -1,0 +1,27 @@
+2013-02-08 Puppet Labs <info@puppetlabs.com> - 0.4.1
+ * (#18165) Mark tests pending on broken puppet versions
+ * (#18165) Initialize TestHelper as soon as possible
+ * Maint: Change formatting and handle windows path separator
+
+2012-12-14 Puppet Labs <info@puppetlabs.com> - 0.4.0
+ * Rake should fail if git can't clone repository
+ * Add readme for fixtures
+ * Fix Mocha deprecations
+ * add opts logic to rake spec_clean
+ * add backwards-compatible support for arbitrary git refs in .fixtures.yml
+ * Only remove the site.pp if it is empty
+ * (#15464) Make contributing easy via bundle Gemfile
+ * (#15464) Add gemspec from 0.3.0 published gem
+
+2012-08-14 Puppet Labs <info@puppetlabs.com> - 0.3.0
+ * Add PuppetInternals compatibility module for
+   scope, node, compiler, and functions
+ * Add rspec-puppet convention directories to rake tasks
+
+2012-07-05 Puppet Labs <info@puppetlabs.com> - 0.2.0
+ * Fix integration with mocha-0.12.0
+ * Fix coverage rake task
+ * Fix an issue creating the fixtures directory
+
+2012-06-08 Puppet Labs <info@puppetlabs.com> - 0.1.0
+ * Initial release

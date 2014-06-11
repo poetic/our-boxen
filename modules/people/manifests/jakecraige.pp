@@ -3,7 +3,6 @@ class people::jakecraige {
   $development  = "${home}/Development"
   $dotfiles     = "${development}/dotfiles"
 
-  include toggl
   include dropbox
   include evernote
   include skitch

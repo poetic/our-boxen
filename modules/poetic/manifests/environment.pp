@@ -32,40 +32,40 @@ class poetic::environment {
 
   class { 'ruby::global': version => $ruby_version }
 
-  ruby::gem { "rails for ${version}":
+  ruby_gem { "rails for ${version}":
     gem     => 'rails',
-    ruby    => $ruby_version
+    ruby_version    => $ruby_version
   }
 
-  ruby::gem { "ruboto for ${version}":
+  ruby_gem { "ruboto for ${version}":
     gem     => 'ruboto',
-    ruby    => $ruby_version
+    ruby_version    => $ruby_version
   }
 
-  ruby::gem { "rails-api for ${version}":
+  ruby_gem { "rails-api for ${version}":
     gem     => 'rails-api',
-    ruby    => $ruby_version
+    ruby_version    => $ruby_version
   }
 
-  ruby::gem { "compass for ${version}":
+  ruby_gem { "compass for ${version}":
     gem     => 'compass',
-    ruby    => $ruby_version
+    ruby_version    => $ruby_version
   }
 
-  ruby::gem { "tmuxinator for ${version}":
+  ruby_gem { "tmuxinator for ${version}":
     gem     => 'tmuxinator',
-    ruby    => $ruby_version
+    ruby_version    => $ruby_version
   }
 
-  ruby::gem { "rails_apps_composer for ${version}":
+  ruby_gem { "rails_apps_composer for ${version}":
     gem     => 'rails_apps_composer',
-    ruby    => $ruby_version
+    ruby_version    => $ruby_version
   }
 
   # legacy compass site support
-  ruby::gem { "html5-boilerplate for ${version}":
+  ruby_gem { "html5-boilerplate for ${version}":
     gem     => 'html5-boilerplate',
-    ruby    => $ruby_version,
+    ruby_version    => $ruby_version,
     version => '= 1.0.0'
   }
 

@@ -1,0 +1,11 @@
+/.bundle
+/.env.local.rb
+/.projects
+/.rbenv-version
+/Gemfile.lock
+/bin
+/boxen-*.gem
+/log
+/puppet
+/script/Boxen.dSYM
+/.ruby-version
