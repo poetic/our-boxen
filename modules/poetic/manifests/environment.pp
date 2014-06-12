@@ -89,6 +89,10 @@ class poetic::environment {
     ensure => present
   }
 
+  package { irssi:
+    ensure => present
+  }
+
   # set default node version
   $node_version = 'v0.10.26'
   class { 'nodejs::global': version => $node_version }
@@ -111,6 +115,10 @@ class poetic::environment {
   }
 
   nodejs::module { 'ember-cli':
+    node_version => $node_version
+  }
+
+  nodejs::module { 'yo':
     node_version => $node_version
   }
 
