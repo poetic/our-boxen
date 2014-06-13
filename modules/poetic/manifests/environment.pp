@@ -168,6 +168,11 @@ class poetic::environment {
     require => Repository["${poetic_dotfiles}"],
   }
 
+  # Change shell to zsh
+  osx_chsh { $::luser:
+    shell   => '/bin/zsh',
+  }
+
   file { "${home}/.tmux.conf":
     ensure  => link,
     mode    => '0644',
