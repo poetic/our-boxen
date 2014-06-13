@@ -94,6 +94,10 @@ class poetic::environment {
     ensure => present
   }
 
+  package { chromedriver:
+    ensure => present
+  }
+
   # set default node version
   $node_version = 'v0.10.26'
   class { 'nodejs::global': version => $node_version }
