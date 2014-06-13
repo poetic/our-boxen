@@ -26,6 +26,7 @@ class poetic::environment {
   include ctags
   include mongodb
   include iterm2::stable
+  include iterm2::colors::solarized_dark
   include mysql
 
   $ruby_version = '2.1.1'
