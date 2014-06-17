@@ -26,6 +26,26 @@ class poetic::environment {
   include iterm2::stable
   include iterm2::colors::solarized_dark
   include mysql
+  include osx::global::disable_key_press_and_hold
+  include osx::global::expand_print_dialog
+  include osx::global::expand_save_dialog
+  include osx::dock::autohide
+  include osx::finder::show_all_on_desktop
+  include osx::finder::empty_trash_securely
+  include osx::finder::unhide_library
+  include osx::universal_access::ctrl_mod_zoom
+  include osx::universal_access::enable_scrollwheel_zoom
+  include osx::disable_app_quarantine
+  include osx::no_network_dsstores
+  include osx::keyboard::capslock_to_control
+
+  class { 'osx::global::key_repeat_delay':
+    delay => 10
+  }
+
+  class { 'osx::global::key_repeat_rate':
+    rate => 2
+  }
 
   iterm2::colors { 'Cobalt by Jake':
     ansi_0_color        => [0.0, 0.15575926005840302, 0.19370138645172119],
@@ -253,6 +273,10 @@ class poetic::environment {
   }
 
   package { autojump:
+    ensure => present
+  }
+
+  package { cmake:
     ensure => present
   }
 

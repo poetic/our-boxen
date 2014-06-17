@@ -1,14 +1,14 @@
 class people::jakecraige {
-  $home         = "/Users/${::luser}"
-  $development  = "${home}/Development"
-  $dotfiles     = "${development}/dotfiles"
-
   include dropbox
   include evernote
   include skitch
   include kindle
   include macvim
   include spotify
+
+  $home         = "/Users/${::luser}"
+  $development  = "${home}/Development"
+  $dotfiles     = "${development}/dotfiles"
 
   file { $development:
     ensure => "directory",
@@ -81,10 +81,6 @@ class people::jakecraige {
     mode    => '0644',
     target  => "${dotfiles}/vimrc.bundles.local",
     require => Repository["${dotfiles}"],
-  }
-
-  package { cmake:
-    ensure   => present
   }
 
   package { couchdb: # used for hoodie-cli

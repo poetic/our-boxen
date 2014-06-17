@@ -55,8 +55,4 @@ class people::leonidez {
     require => Repository["${dotfiles}"],
   }
 
-  package { cmake:
-    provider => homebrew,
-    require  => Exec['tap-homebrew-versions'],
-  }
 }

@@ -61,8 +61,4 @@ class people::githubusername {
     require => Repository["${dotfiles}"],
   }
 
-  package { cmake:
-    provider => homebrew,
-    require  => Exec['tap-homebrew-versions'],
-  }
 }

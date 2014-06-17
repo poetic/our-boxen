@@ -22,20 +22,6 @@ class people::joeleon {
     require => File[$dotfiles]
   }
 
-#  file { "${home}/.gitconfig":
-#    ensure  => link,
-    #mode    => '0644',
-    #target  => "${dotfiles}/gitconfig",
-    #require => Repository["${dotfiles}"],
- # }
-
- # file { "${home}/.gitignore":
- #   ensure  => link,
- #   mode    => '0644',
- #   target  => "${dotfiles}/gitignore",
- #   require => Repository["${dotfiles}"],
- # }
-
   file { "${home}/.ssh/aegirvps":
     ensure  => link,
     mode    => '0600',
@@ -84,17 +70,5 @@ class people::joeleon {
     target  => "${dotfiles}/ssh/poeticsystems",
     require => Repository["${dotfiles}"],
   }
-
-  include osx::global::disable_key_press_and_hold
-  include osx::global::expand_print_dialog
-  include osx::global::expand_save_dialog
-  include osx::dock::autohide
-  include osx::finder::show_all_on_desktop
-  include osx::finder::empty_trash_securely
-  include osx::finder::unhide_library
-  include osx::universal_access::ctrl_mod_zoom
-  include osx::universal_access::enable_scrollwheel_zoom
-  include osx::disable_app_quarantine
-  include osx::no_network_dsstores
 
 }
