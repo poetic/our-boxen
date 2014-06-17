@@ -13,6 +13,7 @@ class people::bobobhai {
   include evernote
   include ctags
   include skitch
+  include spotify
 
   file { $development:
     ensure => "directory",

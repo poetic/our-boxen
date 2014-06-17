@@ -7,6 +7,8 @@ class people::jakecraige {
   include evernote
   include skitch
   include kindle
+  include macvim
+  include spotify
 
   file { $development:
     ensure => "directory",

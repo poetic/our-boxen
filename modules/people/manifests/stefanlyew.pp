@@ -1,4 +1,6 @@
 class people::stefanlyew {
+  include spotify
+
   $home         = "/Users/${::luser}"
   $development  = "${home}/Development"
   $dotfiles     = "${development}/dotfiles"
