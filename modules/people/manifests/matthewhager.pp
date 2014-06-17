@@ -111,6 +111,10 @@ class people::matthewhager {
     require => Repository["${dotfiles}"],
   }
 
+  package { irssi:
+    ensure => present
+  }
+
   include osx::global::disable_key_press_and_hold
   include osx::global::expand_print_dialog
   include osx::global::expand_save_dialog

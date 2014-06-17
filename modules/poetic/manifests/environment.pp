@@ -116,10 +116,6 @@ class poetic::environment {
     ensure => present
   }
 
-  package { irssi:
-    ensure => present
-  }
-
   package { chromedriver:
     ensure => present
   }

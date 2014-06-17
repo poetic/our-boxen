@@ -89,6 +89,10 @@ class people::jakecraige {
     ensure   => present
   }
 
+  package { irssi:
+    ensure => present
+  }
+
   $node_version = 'v0.10.26'
 
   nodejs::module { 'hoodie-cli':
