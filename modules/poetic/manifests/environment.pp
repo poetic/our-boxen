@@ -40,7 +40,7 @@ class poetic::environment {
   include osx::keyboard::capslock_to_control
 
   class { 'osx::global::key_repeat_delay':
-    delay => 10
+    delay => 15
   }
 
   class { 'osx::global::key_repeat_rate':
