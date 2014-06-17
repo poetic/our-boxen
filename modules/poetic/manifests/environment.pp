@@ -7,7 +7,6 @@ class poetic::environment {
   include imageoptim
   include postgresql
   include sourcetree
-  include spotify
   include sublime
   include transmit
   include vagrant
@@ -21,7 +20,6 @@ class poetic::environment {
   include elasticsearch
   include eclipse::java
   include android::sdk
-  include macvim
   include tmux
   include ctags
   include mongodb
