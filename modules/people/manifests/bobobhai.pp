@@ -4,9 +4,7 @@ class people::bobobhai {
   $dotfiles     = "${development}/dotfiles"
 
   include alfred
-  include toggl
   include iterm2::stable
-  include synergy
   include tmux
   include dropbox
   include evernote
@@ -31,34 +29,6 @@ class people::bobobhai {
     require => File[$dotfiles]
   }
 
-  file { "${home}/.vim":
-    ensure  => link,
-    mode    => '0644',
-    target  => "${dotfiles}/vim",
-    require => Repository["${dotfiles}"],
-  }
-
-  file { "${home}/.vimrc":
-    ensure  => link,
-    mode    => '0644',
-    target  => "${dotfiles}/vimrc",
-    require => Repository["${dotfiles}"],
-  }
-
-  file { "${home}/.gitconfig":
-    ensure  => link,
-    mode    => '0644',
-    target  => "${dotfiles}/gitconfig",
-    require => Repository["${dotfiles}"],
-  }
-
-  file { "${home}/.gitignore":
-    ensure  => link,
-    mode    => '0644',
-    target  => "${dotfiles}/gitignore",
-    require => Repository["${dotfiles}"],
-  }
-
   file { "${home}/.ssh/id_rsa":
     ensure  => link,
     mode    => '0600',
@@ -79,82 +49,17 @@ class people::bobobhai {
     target  => "${dotfiles}/ssh/poeticsystems",
     require => Repository["${dotfiles}"],
   }
+
   file { "${home}/.bash_profile":
     ensure  => link,
     mode    => '0644',
     target  => "${dotfiles}/bash_profile",
     require => Repository["${dotfiles}"],
   }
+
   file { "${home}/.bashrc":
     ensure  => link,
     mode    => '0644',
     target  => "${dotfiles}/bashrc",
     require => Repository["${dotfiles}"],
   }
-  file { "${home}/.zshrc":
-    ensure  => link,
-    mode    => '0644',
-    target  => "${dotfiles}/zshrc",
-    require => Repository["${dotfiles}"],
-  }
-  file { "${home}/.oh-my-zsh":
-    ensure  => link,
-    mode    => '0644',
-    target  => "${dotfiles}/oh-my-zsh",
-    require => Repository["${dotfiles}"],
-  }
-  file { "${home}/.tmux.conf":
-    ensure  => link,
-    mode    => '0644',
-    target  => "${dotfiles}/tmux.conf",
-    require => Repository["${dotfiles}"],
-  }
-
-  property_list_key { 'Top Left Hotcorner - Start Screen Saver':
-    ensure     => present,
-    path       => "${home}/Library/Preferences/com.apple.dock.plist",
-    key        => 'wvous-tl-corner',
-    value      => 5,
-    value_type => 'integer',
-    notify     => Exec['killall Dock'],
-  }
-
-  property_list_key { 'Top Left Hotcorner - Start Screen Saver - modifier':
-    ensure     => present,
-    path       => "${home}/Library/Preferences/com.apple.dock.plist",
-    key        => 'wvous-tl-modifier',
-    value      => 0,
-    value_type => 'integer',
-    notify     => Exec['killall Dock'],
-  }
-
-  property_list_key { 'Top Right Hotcorner - Desktop':
-    ensure     => present,
-    path       => "${home}/Library/Preferences/com.apple.dock.plist",
-    key        => 'wvous-tr-corner',
-    value      => 4,
-    value_type => 'integer',
-    notify     => Exec['killall Dock'],
-  }
-
-  property_list_key { 'Top Right Hotcorner - Desktop - modifier':
-    ensure     => present,
-    path       => "${home}/Library/Preferences/com.apple.dock.plist",
-    key        => 'wvous-tr-modifier',
-    value      => 0,
-    value_type => 'integer',
-    notify     => Exec['killall Dock'],
-  }
-
-  file { "${home}/Library/Preferences/com.apple.dock.plist":
-    ensure => file,
-    require => [
-                 Property_list_key['Top Left Hotcorner - Start Screen Saver'],
-                 Property_list_key['Top Left Hotcorner - Start Screen Saver - modifier'],
-                 Property_list_key['Top Right Hotcorner - Desktop'],
-                 Property_list_key['Top Right Hotcorner - Desktop - modifier'],
-               ],
-    owner => $::luser,
-    group => "staff"
-  }
-}
