@@ -63,3 +63,4 @@ class people::bobobhai {
     target  => "${dotfiles}/bashrc",
     require => Repository["${dotfiles}"],
   }
+}
