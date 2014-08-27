@@ -38,6 +38,7 @@ class poetic::environment {
   include osx::disable_app_quarantine
   include osx::no_network_dsstores
   include osx::keyboard::capslock_to_control
+  include macvim
 
   class { 'osx::global::key_repeat_delay':
     delay => 15
