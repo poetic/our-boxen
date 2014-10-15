@@ -281,6 +281,16 @@ class poetic::environment {
     ensure => present
   }
 
+  package { 'sshfs':
+    ensure => present
+  }
+
+  # Install OSXFUSE (require for Valkyrie)
+  package { 'OSXFuse':
+    source   => 'http://downloads.sourceforge.net/project/osxfuse/osxfuse-2.7.1/osxfuse-2.7.1.dmg',
+    provider => 'pkgdmg',
+  }
+
   # Vundle install
   exec { 'vim +PluginInstall! +qall':
   }
