@@ -281,4 +281,13 @@ class poetic::environment {
     ensure => present
   }
 
+  # Vundle install
+  exec { 'vim +PluginInstall! +qall':
+  }
+
+  exec { 'vim +PluginClean! +qall':
+  }
+
+  # TPM install
+  exec { 'tmux new -s tpm_install -d; ~/.tmux/plugins/tpm/scripts/install_plugins.sh; tmux kill-session -t tpm_install': }
 }
