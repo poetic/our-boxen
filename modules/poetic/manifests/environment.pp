@@ -6,6 +6,7 @@ class poetic::environment {
   include sublime_text
   include virtualbox
   include vagrant
+  include wget
 
   include osx::global::disable_key_press_and_hold
   include osx::global::expand_print_dialog

@@ -66,5 +66,6 @@ github "sourcetree",   "1.0.0"
 github "sublime_text", "1.0.1"
 github "virtualbox",   "1.0.13"
 github "vagrant",      "3.2.0"
+github "wget",         "1.0.1"
 
 github "osx",          "2.7.1"
