@@ -28,6 +28,13 @@ class poetic::environment {
   class { 'osx::global::key_repeat_rate': rate => 2 }
 
 
+  # change shell to zsh
+
+  osx_chsh { $::luser:
+    shell   => '/bin/zsh',
+  }
+
+
   # ruby configuration
 
   $ruby_version = '2.1.2'
@@ -43,6 +50,18 @@ class poetic::environment {
   # command line dev environment
 
   package { the_silver_searcher:
+    ensure => present
+  }
+
+  package { reattach-to-user-namespace:
+    ensure => present
+  }
+
+  package { autojump:
+    ensure => present
+  }
+
+  package { cmake:
     ensure => present
   }
 
