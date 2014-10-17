@@ -34,6 +34,12 @@ class poetic::environment {
   class { 'ruby::global': version => $ruby_version }
 
 
+  # node config
+
+  $node_version = 'v0.10.31'
+  class { 'nodejs::global': version => $node_version }
+
+
   # command line dev environment
 
   package { the_silver_searcher:
