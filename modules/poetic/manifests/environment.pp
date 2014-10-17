@@ -26,4 +26,25 @@ class poetic::environment {
 
   class { 'osx::global::key_repeat_delay': delay => 15 }
   class { 'osx::global::key_repeat_rate': rate => 2 }
+
+
+  # ruby configuration
+
+  $ruby_version = '2.1.2'
+  class { 'ruby::global': version => $ruby_version }
+
+
+  # command line dev environment
+
+  package { the_silver_searcher:
+    ensure => present
+  }
+
+  package { git-flow:
+    ensure => present
+  }
+
+  package { chromedriver:
+    ensure => present
+  }
 }
