@@ -4,6 +4,8 @@ class poetic::environment {
   include googledrive
   include sourcetree
   include sublime_text
+  include virtualbox
+  include vagrant
 
   include osx::global::disable_key_press_and_hold
   include osx::global::expand_print_dialog

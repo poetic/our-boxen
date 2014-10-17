@@ -64,5 +64,7 @@ github "firefox",      "1.2.3"
 github "googledrive",  "1.0.2"
 github "sourcetree",   "1.0.0"
 github "sublime_text", "1.0.1"
+github "virtualbox",   "1.0.13"
+github "vagrant",      "3.2.0"
 
 github "osx",          "2.7.1"
