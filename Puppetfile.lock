@@ -94,6 +94,11 @@ GITHUBTARBALL
     sourcetree (1.0.0)
 
 GITHUBTARBALL
+  remote: boxen/puppet-sublime_text
+  specs:
+    sublime_text (1.0.1)
+
+GITHUBTARBALL
   remote: boxen/puppet-sudo
   specs:
     sudo (1.0.0)
@@ -141,6 +146,7 @@ DEPENDENCIES
   ruby (= 8.1.4)
   sourcetree (= 1.0.0)
   stdlib (= 4.2.1)
+  sublime_text (= 1.0.1)
   sudo (= 1.0.0)
   xquartz (= 1.2.1)
 
