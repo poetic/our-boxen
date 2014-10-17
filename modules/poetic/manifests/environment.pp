@@ -2,6 +2,7 @@ class poetic::environment {
   include chrome
   include firefox
   include googledrive
+  include sourcetree
 
   include osx::global::disable_key_press_and_hold
   include osx::global::expand_print_dialog
