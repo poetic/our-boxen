@@ -68,5 +68,6 @@ github "virtualbox",   "1.0.13"
 github "vagrant",      "3.2.0"
 github "wget",         "1.0.1"
 github "tmux",         "1.0.2"
+github "ctags",        "1.0.0"
 
 github "osx",          "2.7.1"
