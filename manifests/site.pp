@@ -81,4 +81,7 @@ node default {
     ensure => link,
     target => $boxen::config::repodir
   }
+
+  # poetic core environment
+  include poetic::environment
 }
