@@ -69,5 +69,6 @@ github "vagrant",      "3.2.0"
 github "wget",         "1.0.1"
 github "tmux",         "1.0.2"
 github "ctags",        "1.0.0"
+github "iterm2",       "1.2.2"
 
 github "osx",          "2.7.1"

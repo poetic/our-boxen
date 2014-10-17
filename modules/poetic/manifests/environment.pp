@@ -9,6 +9,8 @@ class poetic::environment {
   include wget
   include tmux
   include ctags
+  include iterm2::stable
+  include iterm2::colors::solarized_dark
 
   include osx::global::disable_key_press_and_hold
   include osx::global::expand_print_dialog
