@@ -2,6 +2,7 @@ class poetic::environment {
   include chrome
   include firefox
   include googledrive
+  include dropbox
   include sourcetree
   include sublime_text
   include virtualbox
