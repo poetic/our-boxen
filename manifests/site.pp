@@ -56,7 +56,7 @@ node default {
   include dnsmasq
   include git
   include hub
-  include nginx
+  #include nginx
 
   # fail if FDE is not enabled
   if $::root_encrypted == 'no' {
@@ -64,16 +64,10 @@ node default {
   }
 
   # node versions
-  include nodejs::v0_6
-  include nodejs::v0_8
   include nodejs::v0_10
 
   # default ruby versions
-  ruby::version { '1.9.3': }
-  ruby::version { '2.0.0': }
-  ruby::version { '2.1.0': }
-  ruby::version { '2.1.1': }
-  ruby::version { '2.1.2': }
+  ruby::version { '2.1.3': }
 
   # common, useful packages
   package {
