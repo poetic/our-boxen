@@ -166,6 +166,12 @@ class poetic::environment {
     require => Repository["${poetic_dotfiles}"],
   }
 
+  file { "Monaco for Powerline.otf":
+    ensure => present,
+    path   => "/Users/${::luser}/Library/Fonts/Monaco for Powerline.otf",
+    source => "puppet:///modules/poetic/Monaco for Powerline.otf"
+  }
+
   # update package managers (vim, tpm)
   exec { 'vim +PluginInstall! +qall': }
   exec { 'vim +PluginClean! +qall': }
