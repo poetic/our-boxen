@@ -84,4 +84,5 @@ node default {
 
   # poetic core environment
   include poetic::environment
+  include poetic::dotfiles
 }
