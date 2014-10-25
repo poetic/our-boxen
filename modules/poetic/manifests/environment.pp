@@ -144,10 +144,6 @@ class poetic::environment {
   class { 'nodejs::global': version => $node_version }
 
   # install some npm modules
-  nodejs::module { 'meteorite':
-    node_version => $node_version
-  }
-
   nodejs::module { 'grunt-cli':
     node_version => $node_version
   }
